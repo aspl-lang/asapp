@@ -20,8 +20,8 @@ struct ASAPPOptions {
 const default_api_level = '29'
 const default_ndk_version = '21.1.6352462'
 
-fn locate_aspl_installation() string {
-	return os.abs_path('ASPL') // TODO: Properly locate the ASPL installation
+fn locate_aspl_installation() ?string {
+	return os.dir(os.find_abs_path_of_executable('aspl') or { return none })
 }
 
 fn build(options ASAPPOptions) ! {
