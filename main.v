@@ -4,8 +4,6 @@ import vab.android
 import vab.android.sdk
 import vab.cli
 
-// TODO: Add a CLI option for specifying permissions
-
 @[params]
 struct ASAPPOptions {
 	app_name     string
@@ -81,13 +79,13 @@ fn build(options ASAPPOptions) ! {
 		verbosity: options.verbosity
 		version_code: options.version_code
 	}
-	android.package(package_opt)!
+	vab_extension_package(package_opt)!
 }
 
 fn main() {
 	mut fp := flag.new_flag_parser(os.args)
 	fp.application('ASAPP')
-	fp.version('v0.1')
+	fp.version('v0.2')
 	fp.limit_free_args(0, 0)!
 	fp.description('Deploy ASPL apps to Android')
 	fp.skip_executable()

@@ -49,7 +49,17 @@ ASAPP will automatically pick the intermediate language file that has the same n
 
 There are many other options available for ASAPP, which you can view by running `asapp help`.
 
-Note: There is currently no CLI option for permissions; if you want your app to have a certain permission, simply add `<uses-permission android:name="android.permission.YOUR_PERMISSION" />` to the `AndroidManifest.xml` that is part of your `vab` installation.
+### ASAPP Manifests
+In addition to the flags passed as CLI arguments, ASAPP is also capable of parsing a simple JSON-based manifest file called `asapp_manifest.json`, which allows the user to declare certain advanced app properties, such as permissions.
+
+This file is optional. However, if it is to be used, it must be placed in the same folder as the intermediate source files.
+
+An example `asapp_manifest.json` might look like this:
+```json
+{
+	"permissions": ["READ_MEDIA_IMAGES"]
+}
+```
 
 ## License & Credits
 ASAPP is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
